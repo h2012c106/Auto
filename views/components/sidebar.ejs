@@ -1,0 +1,93 @@
+
+<aside class="sidebar">
+    <div class="widget">
+        <h3>车辆推荐</h3>
+        <div class="recom-wrapper">
+            <form id="recom-form" class="side">
+                <label>品牌</label>
+                <select name="brandName" class="form-control recom-item">
+                    <option value="any" selected>不限</option>
+                    <% carSum.brands.forEach(function(brand){%>
+                        <option value="<%= brand %>"><%= brand %></option>
+                    <% }) %>
+                </select>
+
+                <label>级别</label>
+                <select name="carClass" class="form-control recom-item">
+                    <option value="any">不限</option>
+                    <% carSum.klasses.forEach(function(klass){%>
+                        <option value="<%= klass %>"><%= klass %></option>
+                    <% }) %>
+                </select>
+
+                <label>价格(万元)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="price_0" class="form-control num-input"><span>-</span><input name="price_1" class="form-control num-input">
+                </div>
+
+                <label>能源</label>
+                <select name="energy" class="form-control recom-item">
+                    <option value="any">不限</option>
+                    <% carSum.energies.forEach(function(energy){%>
+                        <option value="<%= energy %>"><%= energy %></option>
+                    <% }) %>
+                </select>
+
+                <label>驱动方式</label>
+                <select name="drive" class="form-control recom-item">
+                    <option value="any">不限</option>
+                    <% carSum.drives.forEach(function(drive){%>
+                        <option value="<%= drive %>"><%= drive %></option>
+                    <% }) %>
+                </select>
+
+                <label>排放标准</label>
+                <select name="environStan" class="form-control recom-item">
+                    <option value="any">不限</option>
+                    <% carSum.environStans.forEach(function(environStan){%>
+                        <option value="<%= environStan %>"><%= environStan %></option>
+                    <% }) %>
+                </select>
+
+                <label>排量(ml)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="paiLiang_ml_0" class="form-control num-input"><span>-</span><input name="paiLiang_ml_1" class="form-control num-input">
+                </div>
+
+                <label>扭矩(N·m)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="maxTorque_nm_0" class="form-control num-input"><span>-</span><input name="maxTorque_nm_1" class="form-control num-input">
+                </div>
+
+                <label>车型</label>
+                <select name="struct" class="form-control recom-item">
+                    <option value="any">不限</option>
+                    <% carSum.structs.forEach(function(struct){%>
+                        <option value="<%= struct %>"><%= struct %></option>
+                    <% }) %>
+                </select>
+
+                <label>极速(km/h)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="maxSpeed_kmh_0" class="form-control num-input"><span>-</span><input name="maxSpeed_kmh_1" class="form-control num-input">
+                </div>
+                
+                <label>百公里加速(s)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="_0_100_s_0" class="form-control num-input"><span>-</span><input name="_0_100_s_1" class="form-control num-input">
+                </div>
+                
+                <label>油耗(L/km)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="youHao_lkm_0" class="form-control num-input"><span>-</span><input name="youHao_lkm_1" class="form-control num-input">
+                </div>
+                
+                <label>轴距(mm)</label>
+                <div class="num-input-wrapper recom-item">
+                    <input name="wheelbase_0" class="form-control num-input"><span>-</span><input name="wheelbase_1" class="form-control num-input">
+                </div>
+            </form>
+        </div>
+        <span class="btn btn-default btn-search btn-recom" id="recom-btn">搜索</span>
+    </div>
+</aside>

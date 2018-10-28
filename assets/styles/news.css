@@ -1,0 +1,31 @@
+.pic-news {
+    clear: both;
+    border: 1px solid #EAEAEA;
+    padding: 20px 255px 20px 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: -1px;
+}
+
+.text-news {
+    clear: both;
+    border: 1px solid #EAEAEA;
+    padding: 20px 20px 20px 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: -1px;
+}
+
+.excerpt .focus {
+    float: right;
+    margin-right: -235px;
+    margin-left: 0px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.excerpt .thumb {
+    height: auto;
+    transform: translateY(calc((120px - 100%)/2));
+}

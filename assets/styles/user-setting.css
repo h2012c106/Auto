@@ -1,0 +1,45 @@
+.user-setting-wrapper {
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
+    background: white;
+    border: #eaeaea solid 1px;
+    border-radius: 4px;
+}
+
+.user-setting-wrapper .user-setting-input {
+    margin-bottom: 10px;
+}
+
+.user-setting-wrapper .user-setting-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px
+}
+
+.user-setting-wrapper .user-setting-btn .btn {
+    margin: 0px 25px;
+    width: 75px;
+}
+
+.user-setting-wrapper .user-setting-btn .btn-user-setting {
+    color: white;
+    background: #2a5caa;
+    border: #2a5caa solid 1px;
+}
+
+.user-setting-wrapper .user-setting-btn .btn-user-setting:hover {
+    color: #2a5caa;
+    background: white;
+}
+
+.user-setting-wrapper .user-setting-btn .btn-user-deletion {
+    color: white;
+    background: #ed1941;
+    border: #ed1941 solid 1px;
+}
+
+.user-setting-wrapper .user-setting-btn .btn-user-deletion:hover {
+    color: #ed1941;
+    background: white;
+}

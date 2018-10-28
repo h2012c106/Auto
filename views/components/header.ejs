@@ -1,0 +1,48 @@
+<div class="header-topbar hidden-xs link-border">
+    <ul class="site-nav topmenu">
+      <li>您好</li>
+      <% if (userInfo.isLogged) { %>
+        <% if (userInfo.user.userType === 'sup') { %>
+          <li><a href="/user/setting?userId=<%= userInfo.user.userId %>" rel="nofollow"><%= userInfo.user.userName %></a></li>
+          <li>
+            <div class="dropdown">
+              <a  class="btn-secondary dropdown-toggle" type="button" id="admin-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" rel="nofollow">管理员选项</a>
+              <div class="dropdown-menu admin-dropdown-menu" aria-labelledby="admin-dropdown">
+                <a class="dropdown-item" href="/admin/setting/news-review">新闻审核<span class="badge badge-primary badge-pill"><%= userInfo.newsUnreviewedNum %></span></a>
+                <div class="divider"></div>
+                <a class="dropdown-item" href="/admin/setting/user">用户管理</a>
+              </div>
+            </div>
+          </li>
+          <li class="logout-btn" id="logout-btn">退出</li>
+        <% } else { %>
+          <li><a href="/user/setting?userId=<%= userInfo.user.userId %>" rel="nofollow"><%= userInfo.user.userName %></a></li>
+          <li class="logout-btn" id="logout-btn">退出</li>
+        <% } %>
+      <% } else { %>
+        <li>游客, 请 <span class="login-btn" id="login-btn">登录</span> / <span class="signup-btn" id="signup-btn">注册</span></li>
+      <% } %>
+    </ul>
+    领导时代 驾驭未来
+  </div>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar"
+      aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      <span class="icon-bar"></span> </button>
+    <h1 class="logo hvr-bounce-in"><a href="/" title="首页"><img src="/images/logo.png" alt="心所向 驰以恒"></a></h1>
+  </div>
+  <div class="collapse navbar-collapse" id="header-navbar">
+    <form class="navbar-form navbar-right search" id="search-form">
+      <select name="type" class="form-control">
+        <option value ="news">新闻</option>
+        <option value ="forum">论坛</option>
+      </select>
+      <div class="input-group">
+        <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15"
+          autocomplete="off">
+        <span class="input-group-btn">
+          <span class="btn btn-default btn-search" id="search-btn">搜索</span>
+        </span>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/style.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap-dialog.css">
+  <link rel="stylesheet" type="text/css" href="/styles/header.css">
+  <link rel="stylesheet" type="text/css" href="/styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="/styles/user-setting.css">
+  <script src="/js/extern/jquery-2.1.4.min.js"></script>
+  <script src="/js/extern/nprogress.js"></script>
+  <script src="/js/extern/jquery.lazyload.min.js"></script>
+  <!--[if gte IE 9]>
+  <script src="/js/extern/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="/js/extern/html5shiv.min.js" type="text/javascript"></script>
+  <script src="/js/extern/respond.min.js" type="text/javascript"></script>
+  <script src="/js/extern/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+  <!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+  <header class="header">
+    <nav class="navbar navbar-default" id="navbar">
+      <div class="container">
+        <%- include('../components/header'); %>
+      </div>
+    </nav>
+  </header>
+  <section class="container">
+    <div class="content-wrap">
+      <div class="user-setting-wrapper">
+        <form id="user-setting-form" data-userId="<%= userInfo.user.userId %>">
+          <label>用户名</label>
+          <input name="userName" class="form-control user-setting-input" value="<%= userInfo.user.userName %>">
+          <label>密码</label>
+          <input name="pwd" type="password" class="form-control user-setting-input" value="<%= userInfo.user.pwd %>">
+          <div id="confirm-pwd-wrapper"></div>
+          <label>用户类型</label>
+          <select name="userType" class="form-control user-setting-input" disabled>
+          <% if (userInfo.user.userType === 'norm') { %>
+            <option value="norm" selected>普通用户</option>
+            <option value="media">媒体</option>
+            <option value="sup">管理员</option>
+          <% } else if (userInfo.user.userType === 'media') { %>
+            <option value="norm">普通用户</option>
+            <option value="media" selected>媒体</option>
+            <option value="sup">管理员</option>
+          <% } else if (userInfo.user.userType === 'sup') { %>
+            <option value="norm">普通用户</option>
+            <option value="media">媒体</option>
+            <option value="sup" selected>管理员</option>
+          <% } %>
+          </select>
+        </form>
+        <div class="user-setting-btn">
+          <span class="btn btn-default btn-user-setting" id="user-setting-btn">修改</span>
+          <span class="btn btn-default btn-user-deletion" id="user-deletion-btn">注销</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <%- include('../components/footer'); %>
+    </div>
+    <div id="gotop"><a class="gotop"></a></div>
+  </footer>
+  <script src="/js/extern/bootstrap.min.js"></script>
+  <script src="/js/extern/jquery.ias.js"></script>
+  <script src="/js/extern/scripts.js"></script>
+  <script src="/js/extern/bootstrap-dialog.min.js"></script>
+  <script src="/js/tools.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/user-setting.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+.car-items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.car-item-wrapper {
+    width: 150px;
+    height: 200px;
+    padding: 0px;
+    text-align: center;
+    margin: 10px 20px;
+}
+
+.car-item-wrapper .car-pic {
+    width: 135px;
+    height: 135px;
+    margin:5px auto 1px;
+}
+
+.car-item-wrapper .car-pic a {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0px !important;
+}
+
+.car-item-wrapper .car-pic a img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.car-item-wrapper .car-name .subname-wrapper {
+    background: #a1a3a6;
+    color: black;
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 1px 5px;
+    border: black 0.5px solid;
+}
+
+.car-item-wrapper .car-name .subbrand-car {
+    margin-bottom: 5px;
+}

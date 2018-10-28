@@ -1,0 +1,37 @@
+.widget h3:hover {
+    color: #2a5caa;
+    cursor: default;
+}
+
+.recom-wrapper {
+    margin: 20px 20px 18px 20px;
+}
+
+.recom-wrapper .recom-item {
+    margin-bottom: 10px;
+}
+
+.num-input-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.num-input-wrapper>input {
+    width: 45%;
+}
+
+.num-input-wrapper>span {
+    margin: 5px 10px;
+}
+
+span.btn-search {
+    background: #2a5caa;
+    border: #2a5caa solid 1px;
+}
+
+span.btn-recom {
+    width: 75px;
+    float: inherit;
+    margin-left: calc((100% - 75px) / 2);
+    margin-bottom: 15px;
+}

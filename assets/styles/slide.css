@@ -1,0 +1,10 @@
+.slide-img {
+    width: 100% !important;
+    height:auto !important;
+    transform: translateY(calc((250px - 100%)/2));
+}
+
+.carousel-inner {
+    height: 250px !important;
+    border-radius: 8px;
+}
