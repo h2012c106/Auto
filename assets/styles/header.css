@@ -1,3 +1,7 @@
+h3 {
+    cursor: default !important;
+}
+
 .topmenu li {
     padding: 0 5px;
 }

@@ -1,6 +1,7 @@
 .car-items-wrapper {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .car-item-wrapper {

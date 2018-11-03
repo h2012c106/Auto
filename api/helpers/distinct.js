@@ -26,18 +26,25 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    let helpSet = new Set();
-
-    return exits.success(inputs.arr.filter(function (item) {
-      let val = item[inputs.key];
-      if (helpSet.has(val)) {
-        return false;
+    let key = inputs.key;
+    let helpMap = {};
+    inputs.arr.forEach(function (a, i) {
+      let val = a[key];
+      if (helpMap.hasOwnProperty(val)) {
+        helpMap[val].push(i);
       } else {
-        helpSet.add(val);
-        return true;
+        helpMap[val] = [i];
       }
-    }));
+    });
+    let keys = Object.keys(helpMap);
+    keys.sort(function (a, b) {
+      return helpMap[b].length - helpMap[a].length;
+    });
+    let resArr = keys.map(function (k) {
+      return inputs.arr[helpMap[k][0]];
+    });
 
+    return exits.success(resArr);
   }
 
 

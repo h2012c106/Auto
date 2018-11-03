@@ -27,16 +27,24 @@ module.exports = {
           info: '该用户名已存在，请更换用户名'
         });
       } else {
-        let newUser = await User.create({
-          userName: req.body.userName,
-          pwd: req.body.pwd,
-          userType: req.body.userType
-        }).fetch();
+        try {
+          let newUser = await User.create({
+            userName: req.body.userName,
+            pwd: req.body.pwd,
+            userType: req.body.userType
+          });
 
-        req.session.userId = newUser.userId;
-        return res.json({
-          success: true
-        });
+          req.session.userId = newUser.userId;
+          return res.json({
+            success: true
+          });
+        } catch (err) {
+          return res.json({
+            success: false,
+            errorType: 'orm',
+            info: err.details ? err.details : err
+          });
+        }
       }
     } else {
       return res.json({
@@ -63,7 +71,7 @@ module.exports = {
         return res.json({
           success: false,
           errorType: 'userName',
-          info: '用户名错误，请重新输入'
+          info: '用户名不存在，请重新输入'
         });
       } else if (userQry.pwd !== req.body.pwd) {
         return res.json({
@@ -132,8 +140,8 @@ module.exports = {
     } else { // Visitor cant visit
       return res.redirect('/');
     }
-    if(userInfo.isLogged && userInfo.user.userType==='sup'){
-      userInfo.newsUnreviewedNum=await News.count({hasReview: false});
+    if (userInfo.isLogged && userInfo.user.userType === 'sup') {
+      userInfo.newsUnreviewedNum = await News.count({ hasReview: false });
     }
 
     return res.view('user/user-setting', {

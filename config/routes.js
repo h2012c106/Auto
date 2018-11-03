@@ -35,6 +35,16 @@ module.exports.routes = {
   'GET /': 'HomepageController.index',
 
   'GET /car': 'CarController.index',
+  'GET /car/detail': 'CarController.carDetail',
+  'GET /car/type/detail': 'CarController.typeDetail',
+  
+  'GET /news': 'NewsController.index',
+  'GET /news/detail': 'NewsController.detail',
+  'GET /news/publish': 'NewsController.publish',
+
+  'GET /forum': 'ForumController.index',
+  'GET /forum/detail': 'ForumController.detail',
+  'GET /forum/publish': 'ForumController.publish',
 
   'POST /user/alter': 'UserController.alter',
   'POST /user/delete': 'UserController.delete',
@@ -42,8 +52,23 @@ module.exports.routes = {
   'POST /login': 'UserController.login',
   'POST /signup': 'UserController.signup',
   'POST /logout': 'UserController.logout',
+
+  'POST /car-score': 'CarController.score',
+  'POST /car-recom': 'CarController.recom',
   
-  'POST /newsQuery': 'NewsController.newsQuery',
+  'POST /news-homepage': 'NewsController.newsHomepage',
+  'POST /news-query': 'NewsController.newsQuery',
+  'POST /news-publish': 'NewsController.newsPublish',
+  
+  'POST /forum-homepage': 'ForumController.forumHomepage',
+  'POST /forum-query': 'ForumController.forumQuery',
+  'POST /forum-publish': 'ForumController.forumPublish',
+  'POST /forum-reply': 'ForumController.forumReply',
+  
+  'POST /admin/setting/news-pass': 'AdminController.newsPass',
+  'POST /admin/setting/news-kill': 'AdminController.newsKill',
+  'POST /admin/setting/user-alt': 'AdminController.userAlt',
+  'POST /admin/setting/user-kill': 'AdminController.userKill',
 
   /***************************************************************************
   *                                                                          *

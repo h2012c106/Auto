@@ -15,12 +15,14 @@
           <div class="item carousel-item active">
             <a href="<%= n.newsUrl %>" title="<%= n.title %>">
               <img src="<%= n.picUrl %>" alt="<%= n.title %>" class="img-responsive slide-img">
+              <div class="slide-title carousel-caption"><%= n.title %></div>
             </a>
           </div>
         <% } else { %>
           <div class="item carousel-item">
             <a href="<%= n.newsUrl %>" title="<%= n.title %>">
               <img src="<%= n.picUrl %>" alt="<%= n.title %>" class="img-responsive slide-img">
+              <div class="slide-title carousel-caption"><%= n.title %></div>
             </a>
           </div>
         <% } %>

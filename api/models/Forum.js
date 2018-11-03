@@ -30,8 +30,8 @@ module.exports = {
     postId: {
       type: 'number',
       allowNull: false,
-      required: true,
-      // autoIncrement: true
+      // required: true,
+      autoIncrement: true
     },
     title: {
       type: 'string',

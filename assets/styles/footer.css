@@ -11,3 +11,7 @@ footer {
 footer p>span {
     text-transform: capitalize;
 }
+
+a.gotop {
+    bottom: 60px;
+}

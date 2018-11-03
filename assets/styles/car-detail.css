@@ -1,0 +1,49 @@
+.car-items-wrapper {
+    margin-bottom: 0px;
+}
+
+.car-item-wrapper {
+    height: 180px;
+    margin: 10px;
+}
+
+.thead-dark {
+    background: rgb(243, 243, 243);
+}
+
+.type-name {
+    width: 50%;
+}
+
+.car-wrapper {
+    margin-bottom: 40px;
+    background: white;
+    border: #EAEAEA solid 1px;
+    padding: 20px 40px;
+}
+
+.car-wrapper .section-info {
+    margin-bottom: 20px;
+}
+
+.car-wrapper .section-info .section-title {
+    padding-bottom: 10px;
+    border-bottom: #EAEAEA solid 1px;
+    margin-bottom: 10px;
+}
+
+.brand-news li {
+    margin: 10px;
+}
+
+.brand-news li>a {
+    color: rgb(128, 128, 128);
+}
+
+.brand-news li>a:hover {
+    color: #2a5caa;
+}
+
+.car-items-wrapper {
+    justify-content: center;
+}

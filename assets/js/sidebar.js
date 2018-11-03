@@ -11,7 +11,7 @@ $('.num-input').change(function () {
 });
 
 $('#recom-btn').click(function () {
-  let formData = tools.qsToFd('#recom-form');
+  let formData = tools.formToFd('#recom-form');
   let childInfo = {};
   for (let key in formData) {
     if (formData[key] !== '' && formData[key] !== 'any') {

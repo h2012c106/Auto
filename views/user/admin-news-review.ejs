@@ -42,9 +42,36 @@
   <section class="container">
     <div class="content-wrap">
       <div class="table-wrapper">
-        <div class="toi-btn-wrapper">
-          <span class="btn btn-default btn-user-setting" id="user-setting-btn">修改</span>
-          <span class="btn btn-default btn-user-deletion" id="user-deletion-btn">注销</span>
+        <div class="panel panel-default">
+          <div class="panel-heading">总计<%= userInfo.newsUnreviewedNum %>条项目</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">标题</th>
+                <th class="text-center" scope="col">作者</th>
+                <th class="text-center" scope="col">发布时间</th>
+                <th class="text-center" scope="col">选择</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% newsUnreviewed.forEach(function(n, index){%>
+                <tr>
+                  <th class="text-center" scope="row"><%= index %></th>
+                  <td class="text-center"><a href="/news/detail?newsId=<%= n.newsId %>" title="预览" target="_blank"><%= n.title %></td>
+                  <td class="text-center"><%= n.author %></td>
+                  <td class="text-center"><%= n.time %></td>
+                  <td class="text-center"><input type="checkbox" data-newsId="<%= n.newsId %>"></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div class="quatre-btn-wrapper">
+          <span class="btn btn-default btn-tool" id="all-check-btn">全选</span>
+          <span class="btn btn-default btn-tool" id="anti-check-btn">反选</span>
+          <span class="btn btn-default btn-good" id="news-pass-btn">审核通过</span>
+          <span class="btn btn-default btn-bad" id="news-kill-btn">违规</span>
         </div>
       </div>
     </div>

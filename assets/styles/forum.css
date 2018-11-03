@@ -1,0 +1,79 @@
+.tag-chooser-wrapper {
+    display: flex;
+    margin: 20px 0px;
+    font-size: 18px;
+    background: white;
+    border: #EAEAEA solid 1px;
+}
+
+.tag-chooser-wrapper .chooser-title {
+    width: 15%;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 15px 0px;
+}
+
+.tag-chooser-wrapper .chooser-content {
+    display: flex;
+    padding: 15px 0px;
+    padding-left: 20px;
+}
+
+.open .btn-secondary {
+    border-top: #2a5caa solid 2px;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown {
+    margin: 0px 20px;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu {
+    padding: 5px 0px 5px 10px;
+    min-width: 450px;
+    z-index: 5;
+    top: 110%;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu a {
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+    margin: 4px 0px;
+    color: black;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu a:hover {
+    color: #2a5caa;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu a.current-tag {
+    border: #2a5caa solid 1px;
+    color: #2a5caa;
+    border-radius: 5px;
+}
+
+.post-wrapper .post {
+    clear: both;
+    border: 1px solid #EAEAEA;
+    padding: 20px 20px 20px 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: -1px;
+}
+
+.tags-wrapper {
+    float: right;
+}
+
+.tags-wrapper .tag-wrapper {
+    text-align: center;
+    margin: 0px 8px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: #e4e4e4 solid 1px;
+    background: #e4e4e4;
+}
+
+.tags-wrapper .tag-wrapper a {
+    color: #575757;
+}

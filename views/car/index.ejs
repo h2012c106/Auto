@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="/styles/header.css">
   <link rel="stylesheet" type="text/css" href="/styles/footer.css">
   <link rel="stylesheet" type="text/css" href="/styles/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/styles/empty.css">
   <link rel="stylesheet" type="text/css" href="/styles/car.css">
   <script src="/js/extern/jquery-2.1.4.min.js"></script>
   <script src="/js/extern/nprogress.js"></script>
@@ -47,6 +48,9 @@
           <h3>车辆</h3>
         </div>
         <div class="car-items-wrapper">
+          <% if (carInfo.length === 0) { %>
+            <%- include('../components/empty'); %>
+          <% } else { %>
             <% carInfo.forEach(function(c){%>
                 <div class="car-item-wrapper excerpt">
                     <div class="car-pic">
@@ -61,6 +65,7 @@
                     </div>
                 </div>
             <% }) %>
+          <% } %>
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ $('#login-btn').click(function () {
       label: '登陆',
       cssClass: 'btn-primary',
       action: function (diaSelf) {
-        let formData = tools.qsToFd('form#login-form');
+        let formData = tools.formToFd('form#login-form');
         $.ajax({
           type: 'POST',
           url: '/login',
@@ -79,7 +79,7 @@ $('#signup-btn').click(function () {
       label: '注册',
       cssClass: 'btn-primary',
       action: function (diaSelf) {
-        let formData = tools.qsToFd('form#signup-form');
+        let formData = tools.formToFd('form#signup-form');
         $.ajax({
           type: 'POST',
           url: '/signup',
@@ -126,10 +126,22 @@ $('#logout-btn').click(function () {
 });
 
 $('#search-btn').click(function () {
-  let formData = tools.qsToFd('form#search-form');
+  let formData = tools.formToFd('form#search-form');
   if (formData.type === 'news') {
-
+    window.location.href = `/news?searchKey=${formData.keyword}`;
   } else if (formData.type === 'forum') {
+    if (location.search.indexOf("?") !== -1) {
+      let tmp = tools.qsToFd(decodeURIComponent(location.search.substr(1)));
+      tmp.searchKey = formData.keyword;
+      window.location.href = `/forum?${tools.fdToQs(tmp)}`;
+    } else {
+      window.location.href = `/forum?searchKey=${formData.keyword}`;
+    }
+  }
+});
 
+$('#search-form').keydown(function () {
+  if (event.keyCode === 13) {
+    $('#search-btn').click();
   }
 });

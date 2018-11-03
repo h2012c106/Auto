@@ -1,0 +1,20 @@
+.news-wrapper {
+    margin-bottom: 40px;
+    background: white;
+    border: #EAEAEA solid 1px;
+    padding: 10px 20px;
+}
+
+.article-meta .meta-item {
+    margin: 0px 30px;
+}
+
+.article-quotation {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgb(158, 158, 158);
+}
+
+.article-quotation:hover i {
+    color: #2a5caa;
+}

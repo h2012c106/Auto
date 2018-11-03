@@ -1,0 +1,49 @@
+.table-wrapper {
+    margin: 20px 20px 50px;
+}
+
+.user-table {
+    margin: 20px 250px 50px;
+}
+
+.table-wrapper .quatre-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn {
+    margin: 0px 10px;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-tool {
+    color: white;
+    background: #72777b;
+    border: #72777b solid 1px;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-tool:hover {
+    color: #72777b;
+    background: white;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-good {
+    color: white;
+    background: #2a5caa;
+    border: #2a5caa solid 1px;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-good:hover {
+    color: #2a5caa;
+    background: white;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-bad {
+    color: white;
+    background: #ed1941;
+    border: #ed1941 solid 1px;
+}
+
+.table-wrapper .quatre-btn-wrapper .btn-bad:hover {
+    color: #ed1941;
+    background: white;
+}

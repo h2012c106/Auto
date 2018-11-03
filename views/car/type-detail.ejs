@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/style.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap-dialog.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/star-rating.min.css">
+  <link rel="stylesheet" type="text/css" href="/styles/header.css">
+  <link rel="stylesheet" type="text/css" href="/styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="/styles/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/styles/empty.css">
+  <link rel="stylesheet" type="text/css" href="/styles/car.css">
+  <link rel="stylesheet" type="text/css" href="/styles/car-detail.css">
+  <link rel="stylesheet" type="text/css" href="/styles/type-detail.css">
+  <script src="/js/extern/jquery-2.1.4.min.js"></script>
+  <script src="/js/extern/nprogress.js"></script>
+  <script src="/js/extern/jquery.lazyload.min.js"></script>
+  <script src="/js/extern/star-rating.min.js"></script>
+  <!--[if gte IE 9]>
+  <script src="/js/extern/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="/js/extern/html5shiv.min.js" type="text/javascript"></script>
+  <script src="/js/extern/respond.min.js" type="text/javascript"></script>
+  <script src="/js/extern/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+  <!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+  <header class="header">
+    <nav class="navbar navbar-default" id="navbar">
+      <div class="container">
+        <%- include('../components/header'); %>
+      </div>
+    </nav>
+  </header>
+  <section class="container">
+    <div class="content-wrap">
+      <div class="car-wrapper content">
+        <div class="section-info">
+          <h3 class="section-title"><%= typeInfo.typeName %></h3>
+          <div class="section-content">
+            <div class="section-piece">
+              <p>品牌: <a href="/car?brandName=<%= typeInfo.brandName %>" title="<%= typeInfo.brandName %>"><%= typeInfo.brandName %></a></p>
+              <p>厂商: <%= typeInfo.subBrandName %></p>
+              <p>车系: <a href="/car/detail?carId=<%= typeInfo.carId %>" title="<%= typeInfo.carName %>"><%= typeInfo.carName %></a></p>
+              <p>指导价: <%= typeInfo.price %>万元</p>
+              <p>级别: <a href="/car?carClass=<%= typeInfo.carClass %>" title="<%= typeInfo.carClass %>"><%= typeInfo.carClass %></a></p>
+              <p>车型: <a href="/car?struct=<%= typeInfo.struct %>" title="<%= typeInfo.struct %>"><%= typeInfo.struct %></a></p>
+              <p>上市时间: <%= typeInfo.marketTime %></p>
+              <p>能源: <a href="/car?energy=<%= typeInfo.energy %>" title="<%= typeInfo.energy %>"><%= typeInfo.energy %></a></p>
+              <p>环保标准: <a href="/car?environStan=<%= typeInfo.environStan %>" title="<%= typeInfo.environStan %>"><%= typeInfo.environStan %></a></p>
+            </div>
+            <div class="section-piece">
+              <img class="thumb" src="<%= typeInfo.picUrl %>" alt="<%= typeInfo.typeName %>" />
+              <div class="scores-wrapper">
+                <div class="other-score">
+                  <% if (typeInfo.score.num === 0) { %>
+                    <h3>暂无评分</h3>
+                  <% } else { %>
+                    <h3><%= typeInfo.score.score %></h3>
+                    <span>(已有<%= typeInfo.score.num %>条打分)</span>
+                  <% } %>
+                </div>
+                <div class="self-score" data-carId="<%= typeInfo.carId %>" data-typeId="<%= typeInfo.typeId %>">
+                  <% if (myScore.hasScored) { %>
+                    <input id="star-score" type="number" class="rating rating-loading" data-size="xs" data-min="0" data-max="5" data-step="0.1" data-show-clear="false" data-show-caption="false" value="<%= myScore.scoreDisplay %>">
+                    <span>(您已打分，分数为<%= myScore.scoreDisplay %>)</span>
+                  <% } else { %>
+                    <input id="star-score" type="number" class="rating rating-loading" data-size="xs" data-min="0" data-max="5" data-step="0.1" data-show-clear="false" data-show-caption="false" value="0">
+                    <span>(您尚未打分)</span>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-info">
+          <h3 class="section-title">详细信息</h3>
+          <div class="section-content">
+            <div class="section-piece">
+              <p>引擎: <%= typeInfo.engineName %></p>
+              <p>变速箱: <%= typeInfo.gearbox %></p>
+              <p>排量: <%= typeInfo.paiLiang_ml === '-' ? '-' : `${typeInfo.paiLiang_ml}mL` %></p>
+              <p>峰值扭矩: <%= typeInfo.maxTorque_nm === '-' ? '-' : `${typeInfo.maxTorque_nm}N·m` %></p>
+              <p>极速: <%= typeInfo.maxSpeed_kmh === '-' ? '-' : `${typeInfo.maxSpeed_kmh}km/h` %></p>
+              <p>零百加速: <%= typeInfo._0_100_s === '-' ? '-' : `${typeInfo._0_100_s}s` %></p>
+            </div>
+            <div class="section-piece">
+              <p>驱动: <a href="/car?drive=<%= typeInfo.drive %>" title="<%= typeInfo.drive %>"><%= typeInfo.drive %></a></p>
+              <p>油耗: <%= typeInfo.youHao_lkm === '-' ? '-' : `${typeInfo.youHao_lkm}L/km` %></p>
+              <p>轴距: <%= typeInfo.wheelbase_mm === '-' ? '-' : `${typeInfo.wheelbase_mm}mm` %></p>
+              <p>车长: <%= typeInfo.len_mm === '-' ? '-' : `${typeInfo.len_mm}mm` %></p>
+              <p>车宽: <%= typeInfo.wid_mm === '-' ? '-' : `${typeInfo.wid_mm}mm` %></p>
+              <p>车高: <%= typeInfo.hei_mm === '-' ? '-' : `${typeInfo.hei_mm}mm` %></p>
+            </div>
+          </div>
+        </div>
+        <div class="section-info">
+          <h3 class="section-title">相似推荐</h3>
+          <div class="recom-section-content">
+            <div class="recom-btn-wrapper" data-carId="<%= typeInfo.carId %>" data-price="<%= typeInfo.price %>" data-wheelbase_mm="<%= typeInfo.wheelbase_mm %>">
+              <span class="recom-btn" data-type="shape" data-carClass="<%= typeInfo.carClass %>" data-struct="<%= typeInfo.struct %>">车型</span>
+              <span class="recom-btn" data-type="power" data-paiLiang_ml="<%= typeInfo.paiLiang_ml %>">动力</span>
+              <span class="recom-btn" data-type="acce" data-maxTorque_nm="<%= typeInfo.maxTorque_nm %>" data-_0_100_s="<%= typeInfo._0_100_s %>">加速</span>
+              <span class="recom-btn" data-type="drive" data-drive="<%= typeInfo.drive %>">驱动</span>
+              <span class="recom-btn" data-type="energy" data-environStan="<%= typeInfo.environStan %>" data-youHao_lkm="<%= typeInfo.youHao_lkm %>" data-energy="<%= typeInfo.energy %>">能耗</span>
+            </div>
+            <div class="car-items-wrapper">
+            </div>
+          </div>
+        </div>
+        <div class="section-info">
+          <h3 class="section-title">车贷计算</h3>
+          <div class="selects-wrapper">
+            <span class="select-wrapper">
+              <span>首付: </span>
+              <select name="down-pay" class="form-control">
+                <option value="0.1" selected>10%</option>
+                <option value="0.2">20%</option>
+                <option value="0.3">30%</option>
+                <option value="0.4">40%</option>
+                <option value="0.5">50%</option>
+                <option value="0.6">60%</option>
+                <option value="0.7">70%</option>
+              </select>
+            </span>
+            <span class="select-wrapper">
+              <span>分期: </span>
+              <select name="stage" class="form-control">
+                <option value="12" selected>12期</option>
+                <option value="24">24期</option>
+                <option value="36">36期</option>
+                <option value="48">48期</option>
+                <option value="60">60期</option>
+              </select>
+            </span>
+          </div>
+          <div class="equation" data-price="<%= typeInfo.price %>">
+            <div class="equation-left">
+              <div class="divider-up">
+                <span class="variable" title="指导价"><%= typeInfo.price %>万元</span> × ( 1 - <span class="variable" data-charac="down-pay" title="首付"></span> ) × <span class="variable" data-charac="interest" title="利率"></span> × ( 1 + <span class="variable" data-charac="interest" title="利率"></span> )<span class="variable pow" data-charac="stage" title="分期"></span>
+              </div>
+              <div class="divider-middle"></div>
+              <div class="divider-down">
+                ( 1 + <span class="variable" data-charac="interest" title="利率"></span> )<span class="variable pow" data-charac="stage" title="分期"></span> - 1
+              </div>
+            </div>
+            <div class="equation-center"> = </div>
+            <div class="equation-right variable" title="结果"></div>
+          </div>
+          <div class="empty-wrapper">
+            <h1>广告位招租</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('../components/sidebar'); %>
+
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <%- include('../components/footer'); %>
+    </div>
+    <div id="gotop"><a class="gotop"></a></div>
+  </footer>
+  <script src="/js/extern/bootstrap.min.js"></script>
+  <script src="/js/extern/jquery.ias.js"></script>
+  <script src="/js/extern/scripts.js"></script>
+  <script src="/js/extern/bootstrap-dialog.min.js"></script>
+  <script src="/js/tools.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/type-detail.js"></script>
+</body>
+
+</html>

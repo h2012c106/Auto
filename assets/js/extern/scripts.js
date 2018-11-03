@@ -127,13 +127,13 @@ $(window).scroll(function() {
 		$(oMenu).fadeOut(100);
 	}
 })();
-document.onkeydown = function(event) {
-	var e = event || window.event || arguments.callee.caller.arguments[0];
-	if (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 13) return true;
-	if ((e.keyCode === 123) || (e.ctrlKey) || (e.ctrlKey) && (e.keyCode === 85)) {
-		return false
-	}
-};
+// document.onkeydown = function(event) {
+// 	var e = event || window.event || arguments.callee.caller.arguments[0];
+// 	if (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 13) return true;
+// 	if ((e.keyCode === 123) || (e.ctrlKey) || (e.ctrlKey) && (e.keyCode === 85)) {
+// 		return false
+// 	}
+// };
 try {
 	if (window.console && window.console.log) {
 		console.log("\n欢迎访问站长素材！\n\n");
@@ -141,13 +141,13 @@ try {
 	}
 } catch (e) {};
 
-function SiteSearch(send_url, divTgs) {
-	var str = $.trim($(divTgs).val());
-	if (str.length > 0 && str != "请输入关键字") {
-		str = str.replace(/\s+/g, "");
-		str = str.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\，|\。|\：|\；|\·|\~|\！|\、|\《|\》|\‘|\“|\”|\【|\】|\?{|\}|\-|\=|\——|\+|\’|\—|\？]/g, "");
-		str = str.replace(/<[^>]*>|/g, "");
-		window.location.href = send_url + "?keyword=" + encodeURI(str)
-	}
-	return false
-}
+// function SiteSearch(send_url, divTgs) {
+// 	var str = $.trim($(divTgs).val());
+// 	if (str.length > 0 && str != "请输入关键字") {
+// 		str = str.replace(/\s+/g, "");
+// 		str = str.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\，|\。|\：|\；|\·|\~|\！|\、|\《|\》|\‘|\“|\”|\【|\】|\?{|\}|\-|\=|\——|\+|\’|\—|\？]/g, "");
+// 		str = str.replace(/<[^>]*>|/g, "");
+// 		window.location.href = send_url + "?keyword=" + encodeURI(str)
+// 	}
+// 	return false
+// }

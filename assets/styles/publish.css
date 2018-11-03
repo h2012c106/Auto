@@ -1,0 +1,102 @@
+.publish-wrapper {
+    width: 1000px;
+    padding: 20px;
+    margin: 10px auto 40px;
+    background: white;
+    border: #eaeaea solid 1px;
+    border-radius: 4px;
+}
+
+.publish-wrapper .publish-input {
+    margin-bottom: 10px;
+}
+
+.publish-wrapper textarea.publish-input {
+    height: 300px;
+}
+
+.publish-wrapper label.pic-upload {
+    display: block;
+    width: 80px;
+    color: white;
+    background: #72777b;
+    border: #72777b solid 1px;
+    border-radius: 5px;
+    text-align: inherit;
+}
+
+.publish-wrapper label.pic-upload:hover {
+    color: #72777b;
+    background: white;
+}
+
+.publish-btn-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.publish-btn-wrapper .btn-publish {
+    width: 60px;
+    color: white;
+    background: #2a5caa;
+    border: #2a5caa solid 1px;
+}
+
+.publish-btn-wrapper .btn-publish:hover {
+    color: #2a5caa;
+    background: white;
+}
+
+.tag-chooser-wrapper {
+    display: flex;
+    font-size: 18px;
+    background: white;
+}
+
+.tag-chooser-wrapper .chooser-content {
+    display: flex;
+    padding-bottom: 3px;
+}
+
+.open .btn-secondary {
+    color: #2a5caa !important;
+    border-left: #2a5caa solid 1px;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown {
+    margin: 0px 10px;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .btn-secondary {
+    color: #4d4d4d;
+    font-size: 15px;
+    padding-left: 3px;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu {
+    padding: 5px 0px 5px 10px;
+    min-width: 450px;
+    z-index: 5;
+    top: 110%;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu span {
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+    margin: 4px 0px;
+    color: black;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu span:hover {
+    color: #2a5caa;
+    cursor: pointer;
+}
+
+.tag-chooser-wrapper .chooser-content .dropdown .dropdown-menu span.chosen-tag {
+    border: #2a5caa solid 1px;
+    color: white;
+    background: #2a5caa;
+    border-radius: 5px;
+}

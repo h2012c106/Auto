@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/style.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap-dialog.css">
+  <link rel="stylesheet" type="text/css" href="/styles/header.css">
+  <link rel="stylesheet" type="text/css" href="/styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="/styles/publish.css">
+  <script src="/js/extern/jquery-2.1.4.min.js"></script>
+  <script src="/js/extern/nprogress.js"></script>
+  <script src="/js/extern/jquery.lazyload.min.js"></script>
+  <!--[if gte IE 9]>
+  <script src="/js/extern/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="/js/extern/html5shiv.min.js" type="text/javascript"></script>
+  <script src="/js/extern/respond.min.js" type="text/javascript"></script>
+  <script src="/js/extern/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+  <!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+  <header class="header">
+    <nav class="navbar navbar-default" id="navbar">
+      <div class="container">
+        <%- include('../components/header'); %>
+      </div>
+    </nav>
+  </header>
+  <section class="container">
+    <div class="content-wrap">
+      <div class="publish-wrapper">
+        <form id="publish-form" enctype="multipart/form-data">
+          <label>标题</label>
+          <input name="title" class="form-control publish-input">
+          <label>作者</label>
+          <input name="author" class="form-control publish-input">
+          <label>摘要</label>
+          <input name="quotation" class="form-control publish-input">
+          <label>新闻图片</label>
+          <label class="form-control btn publish-input pic-upload" for="pic-input">上传图片</label>
+          <input name="pic" type="file" accept="image/*" id="pic-input" class="publish-input" style="position:absolute;clip:rect(0 0 0 0);">
+          <label>正文</label>
+          <textarea name="text" wrap="virtual" class="form-control publish-input"></textarea>
+        </form>
+        <div class="publish-btn-wrapper">
+          <span class="btn btn-default btn-publish" id="news-publish-btn">发表</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <%- include('../components/footer'); %>
+    </div>
+    <div id="gotop"><a class="gotop"></a></div>
+  </footer>
+  <script src="/js/extern/bootstrap.min.js"></script>
+  <script src="/js/extern/jquery.ias.js"></script>
+  <script src="/js/extern/scripts.js"></script>
+  <script src="/js/extern/bootstrap-dialog.min.js"></script>
+  <script src="/js/tools.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/publish.js"></script>
+</body>
+
+</html>

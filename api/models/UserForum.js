@@ -44,7 +44,8 @@ module.exports = {
     },
     reply: {
       type: 'text',
-      allowNull: false
+      allowNull: false,
+      required: true
     },
     time: {
       type: 'string',

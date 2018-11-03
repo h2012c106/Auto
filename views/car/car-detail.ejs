@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/nprogress.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/style.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/dependencies/bootstrap-dialog.css">
+  <link rel="stylesheet" type="text/css" href="/styles/header.css">
+  <link rel="stylesheet" type="text/css" href="/styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="/styles/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/styles/empty.css">
+  <link rel="stylesheet" type="text/css" href="/styles/car.css">
+  <link rel="stylesheet" type="text/css" href="/styles/car-detail.css">
+  <script src="/js/extern/jquery-2.1.4.min.js"></script>
+  <script src="/js/extern/nprogress.js"></script>
+  <script src="/js/extern/jquery.lazyload.min.js"></script>
+  <!--[if gte IE 9]>
+  <script src="/js/extern/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="/js/extern/html5shiv.min.js" type="text/javascript"></script>
+  <script src="/js/extern/respond.min.js" type="text/javascript"></script>
+  <script src="/js/extern/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+  <!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+  <header class="header">
+    <nav class="navbar navbar-default" id="navbar">
+      <div class="container">
+        <%- include('../components/header'); %>
+      </div>
+    </nav>
+  </header>
+  <section class="container">
+    <div class="content-wrap">
+      <div class="car-wrapper content">
+        <div class="section-info">
+          <h3 class="section-title"><%= carInfo.carName %></h3>
+          <div class="section-content">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="text-center type-name" scope="col">型号</th>
+                  <th class="text-center" scope="col">指导价</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% typeArr.forEach(function(t){%>
+                  <tr class="type-li">
+                    <td class="text-center type-name"><a href="/car/type/detail?typeId=<%= t.typeId %>" title="<%= t.typeName %>"><%= t.typeName %></td>
+                    <td class="text-center"><%= t.price %>万元</td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="section-info">
+          <h3 class="section-title">品牌新闻</h3>
+          <div class="section-content">
+            <div class="brand-news" data-brandName="<%= carInfo.brandName %>"></div>
+          </div>
+        </div>
+        <div class="section-info">
+          <h3 class="section-title">同品牌车系</h3>
+          <div class="section-content">
+            <div class="car-items-wrapper">
+              <% if (brandBroCarArr.length === 0) { %>
+                <%- include('../components/empty'); %>
+              <% } else { %>
+                <% brandBroCarArr.forEach(function(c){%>
+                  <div class="car-item-wrapper excerpt">
+                    <div class="car-pic">
+                      <a class="focus" href="<%= c.carUrl %>" title="<%= c.carName %>">
+                        <img class="thumb" src="<%= c.picUrl %>" alt="<%= c.carName %>">
+                      </a>
+                    </div>
+                    <div class="car-name">
+                      <a href="<%= c.carUrl %>" title="<%= c.carName %>"><%= c.carName %></a>
+                    </div>
+                  </div>
+                <% }) %>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('../components/sidebar'); %>
+
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <%- include('../components/footer'); %>
+    </div>
+    <div id="gotop"><a class="gotop"></a></div>
+  </footer>
+  <script src="/js/extern/bootstrap.min.js"></script>
+  <script src="/js/extern/jquery.ias.js"></script>
+  <script src="/js/extern/scripts.js"></script>
+  <script src="/js/extern/bootstrap-dialog.min.js"></script>
+  <script src="/js/tools.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/car-detail.js"></script>
+</body>
+
+</html>

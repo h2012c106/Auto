@@ -1,0 +1,93 @@
+.forum-wrapper {
+    margin-bottom: 40px;
+}
+
+.post-title {
+    background: white;
+    border: #EAEAEA solid 1px;
+    padding: 15px 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.posts-wrapper {
+    margin-bottom: 20px;
+}
+
+.post-wrapper {
+    display: flex;
+    background: white;
+    border: #EAEAEA solid 0.5px;
+}
+
+.post-wrapper .user-part {
+    vertical-align: middle;
+    width: 20%;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 15px 0px;
+}
+
+.post-wrapper .user-part .user-type {
+    margin: 7px auto;
+    background: #a1a3a6;
+    color: black;
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 1px 5px;
+    border: black 0.5px solid;
+    width: 50%;
+}
+
+.post-wrapper .text-part {
+    padding: 12px 0px;
+    padding-left: 25px;
+    width: 100%;
+    margin-right: 20px;
+    position: relative;
+}
+
+.post-wrapper .text-part .reply-footer {
+    float: right;
+    font-size: 12px;
+    position: absolute;
+    bottom: 12px;
+    right: 0px;
+}
+
+.post-wrapper .text-part .reply-footer .reply-info {
+    margin: 0px 5px;
+}
+
+.post-wrapper .text-part .reply-footer .want-reply {
+    cursor: pointer;
+}
+
+.post-wrapper .text-part .reply-footer .want-reply:hover {
+    color: #2a5caa;
+}
+
+.comment-wrapper .publish-input {
+    margin-bottom: 10px;
+}
+
+.comment-wrapper textarea.publish-input {
+    height: 100px;
+}
+
+.publish-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-wrapper .btn-publish {
+    width: 60px;
+    color: white;
+    background: #2a5caa;
+    border: #2a5caa solid 1px;
+}
+
+.comment-wrapper .btn-publish:hover {
+    color: #2a5caa;
+    background: white;
+}

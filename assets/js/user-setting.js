@@ -8,7 +8,7 @@ $('input[name="pwd"]').on('change', function () {
 });
 
 $('#user-setting-btn').click(function () {
-  let formData = tools.qsToFd('#user-setting-form');
+  let formData = tools.formToFd('#user-setting-form');
   if ($('input[name="pwdConfirm"]').length > 0 && $('input[name="pwdConfirm"]').val() !== $('input[name="pwd"]').val()) {
     $('input[name="pwdConfirm"]').val('');
     alert('密码确认错误，请重新输入');

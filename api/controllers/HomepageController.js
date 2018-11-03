@@ -50,7 +50,7 @@ module.exports = {
     let picNews = [];
     newsQry.forEach(function (n) {
       picNews.push({
-        newsUrl: n.newsId,
+        newsUrl: `/news/detail?newsId=${n.newsId}`,
         picUrl: `/images/newsPic/${n.newsId}.jpg`,
         title: n.title
       });

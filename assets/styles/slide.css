@@ -8,3 +8,11 @@
     height: 250px !important;
     border-radius: 8px;
 }
+
+.carousel-item .slide-title {
+    top: 5px;
+    font-size: 22px;
+    text-align: left;
+    right: 0%;
+    left: 5%;
+}

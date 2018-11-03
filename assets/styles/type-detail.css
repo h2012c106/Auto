@@ -1,0 +1,136 @@
+.section-content {
+    display: flex;
+}
+
+.section-content .section-piece {
+    padding: 20px 30px;
+    width: 50%;
+}
+
+.section-content .section-piece p {
+    margin: 10px 0px;
+}
+
+.section-content .section-piece a {
+    color: #444;
+}
+
+.section-content .section-piece a:hover {
+    color: #2a5caa;
+}
+
+.section-content .section-piece img {
+    margin-left: 30%;
+    margin-bottom: 30px;
+    width: 60%;
+}
+
+.section-content .section-piece .scores-wrapper {
+    display: flex;
+}
+
+.section-content .section-piece .other-score {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-content .section-piece h3 {
+    font-size: 24px;
+    color: rgb(128, 128, 128);
+    margin: 8px 0px;
+}
+
+.section-content .section-piece .self-score {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-content .section-piece .self-score input {
+    display: none;
+}
+
+.recom-section-content .recom-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.recom-section-content .recom-btn-wrapper .recom-btn {
+    background: white;
+    border: #2a5caa solid 1px;
+    color: #2a5caa;
+    border-radius: 5px;
+    padding: 1px 4px;
+    margin: 0px 10px;
+    font-size: 13px;
+}
+
+.recom-section-content .recom-btn-wrapper .recom-btn:hover {
+    cursor: pointer;
+}
+
+.recom-section-content .recom-btn-wrapper .recom-btn.chosen {
+    background: #2a5caa;
+    color: white;
+}
+
+.selects-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.selects-wrapper .select-wrapper {
+    display: flex;
+    margin: 0px 10px;
+}
+
+.selects-wrapper .select-wrapper span {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.equation {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    color: rgb(134, 134, 134);
+    margin: 20px 0px;
+}
+
+.equation .equation-left {
+    text-align: center;
+}
+
+.equation .equation-left .divider-middle {
+    border: rgb(134, 134, 134) solid 1px;
+}
+
+.equation .pow {
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.equation-center {
+    margin: 0px 10px;
+}
+
+.equation-center, .equation-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.equation .variable:hover {
+    color: #2a5caa;
+}
