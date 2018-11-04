@@ -223,10 +223,15 @@ module.exports = {
         userInfo.isLogged = true;
       } else {
         delete req.session.userId;
+        return res.redirect('/news');
       }
+    } else {
+      return res.redirect('/news');
     }
     if (userInfo.isLogged && userInfo.user.userType === 'sup') {
       userInfo.newsUnreviewedNum = await News.count({ hasReview: false });
+    } else {
+      return res.redirect('/news');
     }
 
     // Car Recommandation
@@ -242,14 +247,14 @@ module.exports = {
     let newsId = req.param('newsId');
     let newsInfo;
     if (!newsId) {
-      res.redirect('/news');
+      return res.redirect('/news');
     } else {
       newsInfo = await News.findOne({
         where: { newsId },
         select: ['title', 'time', 'quotation', 'author', 'text', 'hasPic', 'hasReview']
       });
       if (!newsInfo || (!newsInfo.hasReview && userInfo.user.userType !== 'sup')) {
-        res.redirect('/news');
+        return res.redirect('/news');
       } else {
         newsInfo = {
           title: newsInfo.title,
@@ -259,7 +264,7 @@ module.exports = {
           text: newsInfo.text,
           picUrl: newsInfo.hasPic ? `/images/newsPic/${newsId}.jpg` : false
         };
-        res.view('news/detail', {
+        return res.view('news/detail', {
           userInfo,
           carSum,
           newsInfo

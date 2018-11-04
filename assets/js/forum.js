@@ -13,7 +13,6 @@ $(document).ready(function () {
     data,
     dataType: 'json',
     success: function (data) {
-      console.log(data);
       if (data.forumArr.length === 0) {
         $('.post-wrapper').html(tools.EMPTY);
       } else {

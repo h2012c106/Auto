@@ -133,8 +133,6 @@ module.exports = {
       }
     }
 
-    console.log(where);
-
     let forumQry = [];
     if (typeof searchKey !== 'undefined' && parseSearchKey(searchKey).length !== 0) {
       searchKey = parseSearchKey(searchKey);
@@ -316,7 +314,6 @@ module.exports = {
         info: { postId }
       });
     } catch (err) {
-      console.log(err);
       return res.json({
         success: false,
         errorType: 'orm',
@@ -362,7 +359,7 @@ module.exports = {
     let postId = req.param('postId');
     let title;
     if (!postId) {
-      res.redirect('/forum');
+      return res.redirect('/forum');
     } else {
       postId = Number(postId);
       title = await Forum.findOne({
@@ -370,7 +367,7 @@ module.exports = {
         select: ['title']
       });
       if (!title) {
-        res.redirect('/forum');
+        return res.redirect('/forum');
       } else {
         title = title.title;
       }
@@ -467,7 +464,6 @@ module.exports = {
         info: { postId }
       });
     } catch (err) {
-      console.log(err);
       return res.json({
         success: false,
         errorType: 'orm',

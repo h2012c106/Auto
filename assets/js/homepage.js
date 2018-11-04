@@ -29,7 +29,6 @@ $(document).ready(function () {
         msg = tools.EMPTY;
       } else {
         msg = tools.assemForum(data.forumArr);
-        console.log(msg);
       }
       $('div.post-wrapper').html(msg);
     },

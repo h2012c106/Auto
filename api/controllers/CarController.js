@@ -11,7 +11,7 @@ const qsNumKeys = ['price', 'paiLiang_ml', 'maxTorque_nm', 'maxSpeed_kmh',
 const LIMIT = 4;
 const RECOMRATE = {
   price: 0.1,
-  wheelbase_mm: 1 / 15,
+  wheelbase_mm: 1 / 25,
   default: 0.1
 };
 
@@ -126,7 +126,7 @@ module.exports = {
 
     let carId = req.param('carId');
     if (!carId) {
-      res.redirect('/car');
+      return res.redirect('/car');
     } else {
       carId = Number(carId);
       let carInfo = await Car.find({
@@ -135,7 +135,7 @@ module.exports = {
         select: ['brandName', 'carName']
       });
       if (carInfo.length === 0) {
-        res.redirect('/car');
+        return res.redirect('/car');
       }
       carInfo = carInfo[0];
       let brandBroCarArr = await Car.find({
@@ -211,14 +211,14 @@ module.exports = {
 
     let typeId = req.param('typeId');
     if (!typeId) {
-      res.redirect('/car');
+      return res.redirect('/car');
     } else {
       typeId = Number(typeId);
       let typeInfo = await Car.findOne({
         where: { typeId }
       });
       if (!typeInfo) {
-        res.redirect('/car');
+        return res.redirect('/car');
       }
       for (let key in typeInfo) {
         if (qsNumKeys.indexOf(key) !== -1 && typeInfo[key] < 0) {
@@ -324,8 +324,6 @@ module.exports = {
 
   recom: async function (req, res) {
 
-    console.log(req.body);
-
     let type = req.body.type;
     let carId = req.body.carId;
     let price = req.body.price;
@@ -351,7 +349,6 @@ module.exports = {
     if (catcher.pass) {
       for (let i = 0; i < catcher.res.length; ++i) {
         let tmpWhere = catcher.res[i];
-        console.log(type, tmpWhere);
         let tmpQry = await Car.find({
           where: tmpWhere,
           select: ['carId', 'carName', 'picName']
